@@ -1,0 +1,1149 @@
+/* ============================================
+   TOP SECRET // CYBER INTELLIGENCE // NOFORN
+   CLASSIFIED STYLESHEET
+   ============================================ */
+
+/* Base Paper & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: #f2efe9; /* Aged paper color */
+    color: #111; /* Deep black text */
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Paper Grain Texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.03) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0,0,0,0.03) 3px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.03) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0,0,0,0.03) 3px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Scan Noise Overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0,0,0,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(0,0,0,0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Classification Header (Fixed Top) */
+.classification-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111;
+    color: #ff0000;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1000;
+    border-bottom: 2px solid #7a0000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.classification-stamp {
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+.doc-control {
+    font-size: 9px;
+    color: #cc0000;
+    margin-top: 4px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Document Sections */
+.document-section {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 50px 80px;
+    background: #f2efe9;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 
+        0 0 0 1px rgba(0,0,0,0.1),
+        0 2px 8px rgba(0,0,0,0.15),
+        inset 0 0 0 1px rgba(255,255,255,0.5);
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.document-section:nth-child(2) { animation-delay: 0.1s; }
+.document-section:nth-child(3) { animation-delay: 0.2s; }
+.document-section:nth-child(4) { animation-delay: 0.3s; }
+.document-section:nth-child(5) { animation-delay: 0.4s; }
+.document-section:nth-child(6) { animation-delay: 0.5s; }
+.document-section:nth-child(7) { animation-delay: 0.6s; }
+.document-section:nth-child(8) { animation-delay: 0.7s; }
+.document-section:nth-child(9) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Uneven Margins Effect */
+.document-section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -3px;
+    right: 2px;
+    bottom: -2px;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: -1;
+}
+
+/* Section Headers */
+.section-header {
+    border-bottom: 3px solid #222;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.section-classification {
+    font-size: 10px;
+    color: #7a0000;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Cover Page */
+.cover-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 100px 50px;
+}
+
+/* CIA Watermark */
+.cia-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.06;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="black" stroke-width="2"/><path d="M 100 20 L 100 180 M 20 100 L 180 100" stroke="black" stroke-width="2"/><text x="100" y="120" text-anchor="middle" font-size="16" font-weight="bold">CIA</text><text x="100" y="140" text-anchor="middle" font-size="10">CENTRAL INTELLIGENCE AGENCY</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(2px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Partial CIA Logo (Corner) */
+.cover-page::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.15;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="black" stroke-width="2"/><path d="M 100 20 L 100 180 M 20 100 L 180 100" stroke="black" stroke-width="2"/><text x="100" y="120" text-anchor="middle" font-size="16" font-weight="bold">CIA</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%);
+    filter: blur(1px);
+    z-index: 1;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.classification-banner {
+    margin-bottom: 40px;
+}
+
+.top-secret-stamp,
+.noforn-stamp {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0 10px;
+    background: #7a0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 3px;
+    border: 2px solid #000;
+    transform: rotate(-2deg);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.noforn-stamp {
+    transform: rotate(2deg);
+}
+
+.agency-header {
+    margin: 50px 0;
+}
+
+.agency-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #111;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.directorate {
+    font-size: 20px;
+    color: #222;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.document-type {
+    font-size: 28px;
+    color: #7a0000;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.cover-details {
+    margin: 60px 0;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cover-details > div {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.compartment,
+.analyst-info {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.cover-details .label {
+    font-weight: bold;
+    color: #222;
+    margin-right: 10px;
+}
+
+.cover-details .redacted {
+    color: #000;
+    background: #000;
+    padding: 2px 8px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+}
+
+.status-active {
+    color: #7a0000;
+    font-weight: bold;
+}
+
+.classification-footer {
+    margin-top: 60px;
+    position: relative;
+    height: 100px;
+}
+
+/* Classification Stamps */
+.stamp {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #7a0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 4px;
+    border: 3px solid #000;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    position: absolute;
+}
+
+.rotated-stamp-1 {
+    transform: rotate(-8deg);
+    top: 20px;
+    left: 50px;
+}
+
+.rotated-stamp-2 {
+    transform: rotate(12deg);
+    top: 20px;
+    right: 50px;
+}
+
+.rotated-stamp-3 {
+    transform: rotate(-5deg);
+    top: 10px;
+    right: 30px;
+}
+
+.rotated-stamp-4 {
+    transform: rotate(7deg);
+    bottom: 20px;
+    left: 40px;
+}
+
+.rotated-stamp-5 {
+    transform: rotate(-6deg);
+    bottom: 20px;
+    right: 50px;
+}
+
+.rotated-stamp-6 {
+    transform: rotate(8deg);
+    bottom: 20px;
+    left: 30px;
+}
+
+.rotated-stamp-7 {
+    transform: rotate(-7deg);
+    bottom: 20px;
+    right: 40px;
+}
+
+.rotated-stamp-8 {
+    transform: rotate(5deg);
+    bottom: 20px;
+    left: 50px;
+}
+
+.rotated-stamp-9 {
+    transform: rotate(-9deg);
+    bottom: 20px;
+    right: 30px;
+}
+
+.rotated-stamp-9a {
+    transform: rotate(7deg);
+    bottom: 20px;
+    left: 40px;
+}
+
+.rotated-stamp-9b {
+    transform: rotate(-6deg);
+    bottom: 20px;
+    right: 50px;
+}
+
+.rotated-stamp-9c {
+    transform: rotate(8deg);
+    bottom: 20px;
+    left: 30px;
+}
+
+.rotated-stamp-9d {
+    transform: rotate(-7deg);
+    bottom: 20px;
+    right: 40px;
+}
+
+.rotated-stamp-9e {
+    transform: rotate(9deg);
+    bottom: 20px;
+    left: 50px;
+}
+
+.rotated-stamp-10 {
+    transform: rotate(6deg);
+    top: 20px;
+    left: 40px;
+}
+
+.rotated-stamp-11 {
+    transform: rotate(-8deg);
+    top: 20px;
+    right: 50px;
+}
+
+.stamp-container {
+    position: relative;
+    height: 80px;
+    margin-top: 40px;
+}
+
+/* Content Blocks */
+.content-block {
+    margin: 30px 0;
+    padding: 20px 0;
+}
+
+/* Subject Photo */
+.subject-photo-container {
+    float: right;
+    margin: 0 0 20px 30px;
+    position: relative;
+}
+
+.subject-photo {
+    width: 200px;
+    height: 250px;
+    border: 3px solid #000;
+    background: #ddd;
+    position: relative;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    font-size: 14px;
+}
+
+.photo-placeholder span:first-child {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.photo-staple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #999;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.staple-1 {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.staple-2 {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Intel Table */
+.intel-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.intel-table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.intel-table td {
+    padding: 12px 10px;
+    vertical-align: top;
+}
+
+.field-label {
+    font-weight: bold;
+    color: #222;
+    width: 200px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.field-value {
+    color: #111;
+    font-size: 14px;
+}
+
+.threat-high {
+    color: #7a0000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Redactions */
+.redacted,
+.redacted-inline {
+    color: #000;
+    background: #000;
+    padding: 2px 6px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 4px;
+    cursor: help;
+    position: relative;
+    display: inline-block;
+}
+
+.redacted-inline:hover::after {
+    content: attr(data-reveal);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    white-space: nowrap;
+    z-index: 100;
+    font-family: 'Times New Roman', serif;
+    font-size: 12px;
+    letter-spacing: normal;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 5px;
+}
+
+/* Analyst Reports */
+.analyst-report {
+    margin: 30px 0;
+}
+
+.report-paragraph {
+    margin: 20px 0;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #111;
+    text-indent: 30px;
+}
+
+/* Technology Entries */
+.technology-entry {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.technology-entry:last-child {
+    border-bottom: none;
+}
+
+.tech-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tech-description {
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #111;
+}
+
+/* Certifications */
+.certification-record {
+    margin: 30px 0;
+}
+
+.cert-entry {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+}
+
+.cert-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.cert-status {
+    margin: 10px 0;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #000;
+}
+
+.status-badge.verified {
+    background: #7a0000;
+    color: #fff;
+}
+
+.status-badge.approved {
+    background: #000;
+    color: #fff;
+}
+
+.cert-issuer {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Operational History */
+.operation-entry {
+    margin: 40px 0;
+    padding: 25px;
+    border-left: 4px solid #7a0000;
+    background: rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.operation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.operation-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.operation-risk {
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #000;
+    text-transform: uppercase;
+}
+
+.risk-high {
+    background: #7a0000;
+    color: #fff;
+}
+
+.risk-medium {
+    background: #cc6600;
+    color: #fff;
+}
+
+.risk-low {
+    background: #006600;
+    color: #fff;
+}
+
+.operation-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #111;
+}
+
+.operation-description p {
+    margin: 12px 0;
+    text-align: justify;
+}
+
+.operation-description strong {
+    color: #222;
+    font-weight: bold;
+}
+
+/* Tools & Environment */
+.tools-list {
+    margin: 30px 0;
+}
+
+.tool-category {
+    margin: 30px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.2);
+}
+
+.category-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+}
+
+.tool-items {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tool-items li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+    color: #111;
+}
+
+.tool-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #7a0000;
+    font-weight: bold;
+}
+
+/* Strategic Assessment */
+.assessment-box {
+    margin: 30px 0;
+    padding: 30px;
+    border: 3px solid #7a0000;
+    background: rgba(122,0,0,0.05);
+    position: relative;
+}
+
+.assessment-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7a0000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.assessment-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #111;
+}
+
+.assessment-text p {
+    margin: 18px 0;
+    text-align: justify;
+    text-indent: 25px;
+}
+
+/* Security Notice */
+.security-notice {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.warning-box {
+    margin: 40px 0;
+    padding: 40px;
+    border: 5px solid #7a0000;
+    background: rgba(122,0,0,0.1);
+    max-width: 700px;
+}
+
+.warning-text-large {
+    font-size: 32px;
+    font-weight: bold;
+    color: #7a0000;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.warning-text-medium {
+    font-size: 16px;
+    color: #111;
+    margin-top: 30px;
+    line-height: 1.8;
+}
+
+.document-footer {
+    margin: 40px 0;
+    padding: 25px;
+    border: 2px solid #7a0000;
+    background: rgba(122,0,0,0.05);
+}
+
+.footer-classification {
+    text-align: center;
+}
+
+.footer-stamp {
+    font-size: 14px;
+    font-weight: bold;
+    color: #7a0000;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+}
+
+.footer-control {
+    font-size: 11px;
+    color: #111;
+    line-height: 2;
+    font-family: 'Courier New', monospace;
+}
+
+.footer-control div {
+    margin: 5px 0;
+}
+
+.footer-note {
+    margin: 40px 0;
+    padding: 20px;
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+    max-width: 600px;
+    text-align: center;
+}
+
+.final-stamps {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Horizontal Rules */
+.document-section::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #222;
+    margin: 40px 0 20px;
+    opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .document-section {
+        padding: 40px 25px 60px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .agency-name {
+        font-size: 24px;
+    }
+
+    .document-type {
+        font-size: 20px;
+    }
+
+    .subject-photo-container {
+        float: none;
+        margin: 0 auto 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .operation-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .warning-text-large {
+        font-size: 24px;
+    }
+
+    .stamp {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .timeline-container {
+        padding-left: 30px;
+    }
+
+    .recommendation-entry {
+        flex-direction: column;
+    }
+
+    .rec-number {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
+
+/* OSINT Findings */
+.osint-findings {
+    margin: 30px 0;
+    padding: 20px;
+    border-left: 4px solid #7a0000;
+    background: rgba(0,0,0,0.02);
+}
+
+.subsection-header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin: 25px 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+}
+
+.intel-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.intel-list li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 14px;
+    color: #111;
+    line-height: 1.8;
+}
+
+.intel-list li::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    color: #7a0000;
+    font-size: 12px;
+}
+
+/* Methodology Breakdown */
+.methodology-breakdown {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid #ccc;
+}
+
+.phase-entry {
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 3px solid #7a0000;
+    background: rgba(0,0,0,0.02);
+    font-size: 14px;
+    line-height: 1.8;
+    color: #111;
+}
+
+.phase-entry strong {
+    color: #222;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* Timeline */
+.timeline-container {
+    margin: 30px 0;
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #7a0000;
+}
+
+.timeline-entry {
+    margin: 30px 0;
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #7a0000;
+    border: 3px solid #f2efe9;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #7a0000;
+}
+
+.timeline-date {
+    font-size: 13px;
+    font-weight: bold;
+    color: #7a0000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.timeline-content {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #111;
+    text-align: justify;
+}
+
+.timeline-content strong {
+    color: #222;
+    font-weight: bold;
+}
+
+/* Association Categories */
+.association-categories {
+    margin: 30px 0;
+}
+
+.association-category {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.2);
+}
+
+.assessment-note {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #111;
+    text-align: justify;
+    font-style: italic;
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(0,0,0,0.02);
+    border-left: 3px solid #222;
+}
+
+/* Recommendations */
+.recommendations-box {
+    margin: 30px 0;
+}
+
+.recommendation-entry {
+    display: flex;
+    margin: 25px 0;
+    padding: 20px;
+    border-left: 4px solid #7a0000;
+    background: rgba(0,0,0,0.02);
+}
+
+.rec-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #7a0000;
+    margin-right: 20px;
+    min-width: 30px;
+}
+
+.rec-content {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #111;
+    flex: 1;
+    text-align: justify;
+}
+
+.rec-content strong {
+    color: #222;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* Print Styles */
+@media print {
+    .classification-header {
+        position: static;
+    }
+
+    .document-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+}
+
